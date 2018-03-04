@@ -1,0 +1,37 @@
+*{margin:0; padding: 0;}
+.bz_box, .nav_box {width: 375px; overflow: hidden; padding: 30px; box-sizing: border-box; margin:auto; }
+.nav_box {padding: 0; background-color: #f1f2f3;  }
+.nav_box .banner img{width: 100%;}
+.bz_logo h1 {text-align: center; height: 80px; line-height: 80px; color:#ec6941;}
+.form1 p {height:40px; width: 90%;margin:30px auto; line-height: 80px; color: #999; font-size: 12px;}
+.form1 .user, .form1 .times, #btn{height: 38px; width: 100%; border:1px solid #ec6941; font-size: 14px; color: #666; font-size: 16px;}
+.form1 input.user {background: url(../images/0-1.jpg) no-repeat; padding-left:40px; box-sizing: border-box;}
+.form1 input.times {background: url(../images/0-2.jpg) no-repeat; padding-left:40px; box-sizing: border-box;}
+#btn {background: #ec6941; color: #fff; margin-bottom: 100px;}
+.bottom {text-align: center; font-size: 12px; color:#999; margin:auto; padding: 80px 0 30px;}
+.sex {overflow: hidden; margin-top: 35px; margin-bottom: -30px;}
+.boy, .girl { position: relative; height: 40px; width: 30%; line-height: 40px; margin-left: 14%; float: left; }
+.sex label { display: block; height: 40px; width: 40px; line-height: 40px;  font-size: 20px; color:#ec6941;  cursor: pointer;}
+.sex input { z-index: 3;position: absolute;top: 0;bottom: 0;left: 40px;margin: auto;opacity: 0;display: block; width: 20px;height: 20px;cursor: pointer;}
+.sex span {position: absolute;top: 0;bottom: 0;left: 40px; margin: auto; display: block; width: 16px; height: 16px; border: 1px solid #ec6941; border-radius: 50%; cursor: pointer;}        
+.sex span.active {background-color: #ec6941; }
+::-webkit-input-placeholder { color:#aaa; font-size: 14px;}
+:-moz-placeholder { color:#aaa; font-size: 14px;}
+::-moz-placeholder { color:#aaa; font-size: 14px;}
+:-ms-input-placeholder { color:#aaa; font-size: 14px;}
+
+.nav_box .nav ul,.nav_box .nav ul li {list-style: none;}
+.nav_box .nav,.nav_box .nav ul {width: 100%;}
+.nav_box .nav ul li {float:left; width: 25%; }
+.nav_box .nav ul li a {display: block; width: 100%; text-align: center;}
+.nav_box .nav ul {margin-top: 30px; overflow: hidden;}
+.nav_box .nav ul li, .nav_box .nav ul li a {height: 80px; text-align: center; text-decoration: none;}
+.nav_box .nav ul li a  p{color: #999;}
+.nav_box .nav ul li a img{width: 40px;}
+.nav_box .news {width: 100%; margin:4% auto;  background:#fff; padding:10px 20px 20px; box-sizing: border-box; overflow: hidden;}
+.nav_box .news h2{font-size: 16px; line-height: 40px; border-bottom: 1px solid #eee;margin-bottom: 12px; color: #ec6941;}
+.nav_box .news p { font-size: 14px; color: #999; line-height: 22px;  overflow: hidden;}
+.nav_box .news p a {text-decoration:none; color:#999;}
+@media screen and (max-width:720px){
+	.bz_box,.nav_box {width: 100%;}
+}

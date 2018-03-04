@@ -1,1 +1,42 @@
+*{ margin:0; padding: 0; color: #333; font-family: "微软雅黑";}
+ul li {list-style: none;}
+.contents {width: 375px;  overflow: hidden; background: #fff; padding: 2px 0 10px;}
+#topnav {position:fixed; width: 375px;  height: 48px;  background-color: #ec6941; top:0; left: 50%; transform: translateX(-50%); text-align: center; color: #fff; line-height: 48px; z-index: 99999;}
+#topnav a {display: block; width: 30px; height: 30px; margin:8px;}
+#topnav a.t-l{float: left;}
+#topnav a.t-r{float: right;}
+#topnav a img{width: 100%;}
+#msg{width: 100%; margin:4% auto; padding:0;}
+@media screen and (max-width:720px){
+.contents,#topnav {width:100%;}
+}
+#msg .bazi, #msg .dayun{ width: 95%; margin: auto; overflow: hidden;}
+#msg  span {width: 12%; line-height: 30px;}
+#msg .bazi span:nth-child(1){float: left; padding-top:30px; font-size: 12px;}
+#msg .bazi span:nth-child(2){float: right; padding-top:30px; font-size: 12px;}
+#msg  ul { width: 76%; margin: auto; height: 30px;}
+#msg  ul li{width: 25%; float: left; line-height: 24px; height:24px; list-style: none; }
+#msg #tiangan li, #msg #dizhi li{font-size: 24px; height: 36px; line-height: 36px; text-align: center; color:#ec6941; }
+#msg #tgss li,#msg #canggan li,#msg #cgss li,#msg #srss li,#msg #nayin li{font-size: 12px; height: 16px; line-height: 36px; text-align: center;}
+#msg #tgss li,#msg #srss li{font-size: 14px; height: 20px; }
 
+#msg .dayun {margin-top: 20px; font-size: 12px; color: #666;}
+#msg .dayun span { float: left;}
+#msg .dayun ul {float: right;;}
+#msg .dayun ul {width: 88%; overflow: hidden;}
+#msg .dayun ul li {width: 11%; text-align: center;}
+#dyun li {color: #ec6941; }
+#qiy ul { height: 60px; }
+#msg #liunian {height: 240px;}
+#liunian li{height:24px; line-height: 24px; font-size: 10px; color: #999;}
+#liunian li:nth-child(odd){background-color: #f9f9f9; height:240px;}
+#msg .dis {display: none;}
+
+.nav_box ul.box {height:235px; }
+.wuxing li {line-height: 30px; color:#999;}
+.wuxing li span {display:inline-block; height:15px; width:40px; background: #666; margin:auto 10px; }
+.wuxing li:nth-child(2) span {background: #ffc000;}
+.wuxing li:nth-child(3) span {background: #3ea600;}
+.wuxing li:nth-child(4) span {background: #0071a6;}
+.wuxing li:nth-child(5) span {background: #a62300;}
+.wuxing li:nth-child(6) span {background: #6d440a;}
