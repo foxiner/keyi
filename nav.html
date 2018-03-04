@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>keyi</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="./css/css.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+	<script src=./js/keyi1.0.1.js></script>
+	<script type="text/javascript" src="./js/vue.min.js"></script>
+	<script type="text/javascript" src="./js/ys.js"></script>
+	<script type="text/javascript" src="./js/echarts.min.js"></script>
+</head>
+<body>
+	<div class="nav_box">
+		<div class="banner"><img src="./images/banner-1.jpg" alt=""></div>
+		<div class="nav">
+			<ul>
+				<li><a href="#bz"><img src="./images/icon-1.png" alt=""><p>命盘</p></a></li>
+				<li><a href="#yunshimm"><img src="./images/icon-2.png" alt=""><p>运势</p></a></li>
+				<li><a href=""><img src="./images/icon-3.png" alt=""><p>爱情</p></a></li>
+				<li><a href=""><img src="./images/icon-4.png" alt=""><p>财富</p></a></li>
+			</ul>
+		</div>
+		<div class="news">
+		  <h2>关于生辰八字</h2>
+		  <p><a href="#">八字即生辰八字，是一个人出生时的干支历日期。是一种哲学标注，八字就是以天地为法的哲学，中华文明的特点就是用哲学标注具体事物，在中国文化中而哲学就是道学，天地法体现的是道法。八字在中国民俗信仰中占有地位，年干和年支组成年柱，月干和月支组成月柱，日干和日支组成日柱，时干和时支组成时柱；一共四柱，四个干和四个支共八个字，故又称四柱八字...</a></p>
+		</div>
+	</div>
+<div id="bz" class="nav_box">
+    <div class="contents">
+      <div id="topnav"><a href="./nav.html" class="t-l"><img src="./images/home1.png" ></a>KEYI<a href="./index.html"  class="t-r"><img src="./images/sx1.png" ></a></div>
+    	<div id="msg">
+    	    <div class="bazi dis" id="box0">
+      	    <span>{{xb+'造:'}}</span>
+      	    <span>{{xk+'空'}}</span>
+            <ul id="tgss" v-html="Vtgss"></ul>
+      	    <ul id="tiangan">
+              <li>{{ng}}</li>
+              <li>{{yg}}</li>
+              <li>{{rg}}</li>
+              <li>{{sg}}</li>
+            </ul>
+      	    <ul id="dizhi">
+              <li>{{nz}}</li>
+              <li>{{yz}}</li>
+              <li>{{rz}}</li>
+              <li>{{sz}}</li>
+            </ul>
+						<ul id="canggan">
+              <li v-for="item in cg">{{item}}</li>
+            </ul>
+            <ul id="cgss">
+              <li>{{ss.nzs}}</li>
+              <li>{{ss.yzs}}</li>
+              <li>{{ss.rzs}}</li>
+              <li>{{ss.szs}}</li>
+            </ul>
+            <ul id="srss">
+              <li v-for="item in sw">{{item}}</li>
+            </ul>
+            <ul id="nayin">
+              <li v-for="item in ny">{{item}}</li>
+            </ul> 
+          </div>
+          <div class="dayun dis" id="box1">
+            <span>大运：</span>
+            <ul id="dyun">
+              <li v-for="item in dyz">{{item}}</li>
+            </ul>
+            <span>起运：</span>
+            <ul id="qiy">
+              <li v-for="item in qys">{{item}}</li>
+            </ul>
+            <ul id="qiyn">
+              <li v-for="item in qyn">{{item}}</li>
+            </ul>
+            <ul id="liunian">
+              <li v-html="ln.n1"></li>
+              <li v-html="ln.n2"></li>
+              <li v-html="ln.n3"></li>
+              <li v-html="ln.n4"></li>
+              <li v-html="ln.n5"></li>
+              <li v-html="ln.n6"></li>
+              <li v-html="ln.n7"></li>
+              <li v-html="ln.n8"></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+</div>
+
+	<div id="yunshimm" class="nav_box">
+		<ul class="wuxing news box">
+		<h2>五行气数</h2>
+			<li>金:<span v-bind:style="{width:bz.qishu()[0]+'%'}"></span>{{bz.qishu()[0]}}</li>
+			<li>木:<span v-bind:style="{width:bz.qishu()[1]+'%'}"></span>{{bz.qishu()[1]}}</li>
+			<li>水:<span v-bind:style="{width:bz.qishu()[2]+'%'}"></span>{{bz.qishu()[2]}}</li>
+			<li>火:<span v-bind:style="{width:bz.qishu()[3]+'%'}"></span>{{bz.qishu()[3]}}</li>
+			<li>土:<span v-bind:style="{width:bz.qishu()[4]+'%'}"></span>{{bz.qishu()[4]}}</li>
+		</ul>
+		<div class="news">
+			<h2>日主论命</h2>
+
+			<p>{{bz.rg.shiyi()}}</p>
+		</div>
+	</div>
+
+	<div class="nav_box">
+		<div class="news" style="margin-top:0px;">
+			<div style="width:100%; height:300px;" id="Eqs"></div>
+			<h2>大运走势</h2>
+			<p>初限平平，中年运起，万年吉祥</p>
+		</div>
+	</div>
+	<div class="nav_box" style="height:350px; background:#fff;">
+		<div style="width:100%; height:300px; background:#fff;" id="Eqy"></div>
+	</div>
+
+<script>
+	var times = JSON.parse(localStorage.tt);
+	var b = bazi.init(times);
+	// console.log(bz.ng,bz.nz,bz.yg,bz.yz,bz.rg,bz.rz,bz.sg,bz.sz,bz.xk,bz.xb,bz.qy,bz.dy.g,bz.dy.z,bz.ss,bz.ln,bz.dyz,bz.qyn,bz.qys,bz.ny);
+
+	new Vue({
+		el:"#bz",
+		data:b
+	});
+	function $(id){
+		return document.getElementById(id);
+	}
+	var box0 = $('box0');
+	var box1 = $('box1');
+	var classVal0 = box0.getAttribute('class');
+	var classVal1 = box1.getAttribute('class');
+
+	classVal0 = classVal0.replace("dis","");
+	classVal1 = classVal1.replace("dis","");
+	box0.setAttribute("class",classVal0 );
+	box1.setAttribute("class",classVal1 );
+
+
+	// var Vmp = bzmingpan.Vbz;
+	var bz = new Bazi(b.ng,b.nz,b.yg,b.yz,b.rg,b.rz,b.sg,b.sz);
+	new Vue({
+		el:"#yunshimm",
+		data:{
+			bz:bz
+		}
+	});
+
+	var myChart = echarts.init(document.getElementById('Eqs'));
+  //   var option = {
+		// series : [
+		//         {
+		//             name: '访问来源',
+		//             type: 'pie',
+		//             radius: '55%',
+		//             data:[
+		//                 {value:bz.qishu()[0], name:'金'},
+		//                 {value:bz.qishu()[1], name:'木'},
+		//                 {value:bz.qishu()[2], name:'水'},
+		//                 {value:bz.qishu()[3], name:'火'},
+		//                 {value:bz.qishu()[4], name:'土'}
+		//             ]
+		//         }
+		//     ]
+  //   };
+	var  option = {
+	    xAxis: {
+	        type: 'category',
+	        data: b.qyn
+	    },
+	    yAxis: {
+	        type: 'value'
+	    },
+	    series: [{
+	        data: [20, 32, 1, 34, 29, 30, 20,32],
+	        type: 'bar'
+	    }]
+	};
+    myChart.setOption(option);
+
+  var myChart = echarts.init(document.getElementById('Eqy'));
+	var  option = {
+	    xAxis: {
+	        type: 'category',
+	        data: b.qyn
+	    },
+	    yAxis: {
+	        type: 'value'
+	    },
+	    series: [{
+	        data: [20, 32, 1, 34, 29, 30, 20,32],
+	        type: 'line'
+	    }]
+	};
+    myChart.setOption(option);
+
+</script>
+</body>
+</html>

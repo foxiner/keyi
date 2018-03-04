@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>KEYI</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script src="./js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/timePlugin.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+		<script>
+	      function baziDate(form){
+	      	var times=form.times.value,
+	      	sex=form.sex.value,
+	      	timeY = times.split(" "),
+	      	timeD =timeY[0].split("-"),
+	      	y=parseInt(timeD[0]),
+	      	m=timeD[1]-0,
+	      	d=parseInt(timeD[2]),
+	      	h=(timeY[1].split(":"))[0]-0,
+	      	mm=(timeY[1].split(":"))[1]-0;
+	      	console.log(y,m,d,h,sex);
+	      	var ts = {"n":y,"y":m,"r":d,"s":h,"f":mm,"x":sex};
+	      	localStorage.tt=JSON.stringify(ts);
+
+	      	//window.location.href='http://zx.ycddp.com/keyi3/nav.html';
+	      	window.location.href='http://'+location.host+'/keyi3/nav.html';
+	      }
+		</script>
+	</head>
+	<body>
+		<div class="bz_box">
+			<div class="bz_logo"><h1>KEYI</h1></div>
+			<div class="form1">
+				<form name="act">
+					<p><input type="text" class="user" name="user" placeholder="请输入的您的姓名！"></p>
+					<p><input type="text" id="input1" class="times" name="times" placeholder="请选择您的阳历生日！" /></p>
+					<div class="sex">
+						<div class="boy">
+							<label for="boy">男</label>
+							<input type="radio" id="boy" class="radios" name="sex" value="1"/>
+							<span class="female-custom"></span>
+						</div>
+						<div class="girl">
+							<label for="girl">女</label>
+							<input type="radio" id="girl" class="radios" name="sex" value="0" /> 
+							<span class="male-custom"></span> 
+						</div>
+					</div>
+					<p><input type="button" value="提交" onclick="baziDate(act)" id="btn"></p>
+				</form>
+			</div>
+			<div class="bottom">可易工作室</div>
+		</div>	
+</body>
+	<script src="./js/jquery_timePlugin.js?ver=1" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#input1").shijian();
+		$("#boy").click( function () {
+		    $(this).siblings("span").addClass("active");
+		    $(this).parents("div").siblings("div").children("span").removeClass("active");
+		});
+		$("#girl").click( function () {
+		    $(this).siblings("span").addClass("active");
+		    $(this).parents("div").siblings("div").children("span").removeClass("active");
+		});
+	</script>
+</html>
